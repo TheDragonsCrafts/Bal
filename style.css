@@ -1,0 +1,225 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a; /* Dark background */
+    color: #f0f0f0; /* Light text */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top */
+    min-height: 100vh;
+}
+
+#game-container {
+    background-color: #2c2c2c; /* Slightly lighter dark shade for container */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    width: 800px; /* Max width for the game */
+    max-width: 100%;
+}
+
+header#info-area {
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 15px;
+}
+
+header#info-area h1 {
+    margin-top: 0;
+    color: #e0e0e0;
+}
+
+#game-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#game-stats p {
+    margin: 5px 10px;
+    background-color: #333;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+#joker-area-container h2,
+#player-hand-container h2,
+#shop-container h2 {
+    text-align: center;
+    color: #cccccc;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#joker-area, #player-hand-area, #shop-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 70px; /* Min height for joker/hand/shop items */
+    background-color: #222;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#play-area {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #252525;
+    border-radius: 5px;
+}
+
+#deck-area, #discard-area {
+    text-align: center;
+}
+
+.card-pile {
+    width: 60px;
+    height: 90px;
+    border: 2px dashed #555;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8em;
+    color: #888;
+    background-color: #333;
+    margin: 5px auto; /* Auto margins for centering if needed */
+}
+
+.card {
+    width: 70px;
+    height: 100px;
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    cursor: pointer;
+    font-size: 1em; /* Adjust as needed */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    user-select: none; /* Prevent text selection */
+}
+
+.card.selected-card {
+    border: 3px solid dodgerblue;
+    box-shadow: 0 0 10px dodgerblue;
+}
+
+/* Basic styling for suit characters if used, or text */
+.card .rank {
+    font-size: 1.5em; /* Larger rank */
+    font-weight: bold;
+}
+.card .suit {
+    font-size: 1.2em; /* Suit symbol size */
+}
+
+/* Colors for suits (optional, can be done via JS too) */
+.suit-hearts, .suit-diamonds {
+    color: red;
+}
+.suit-clubs, .suit-spades {
+    color: black;
+}
+
+
+#action-buttons {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#discard-button {
+    background-color: #f44336; /* Red */
+}
+#discard-button:hover {
+    background-color: #da190b;
+}
+
+#next-action-button {
+    background-color: #008CBA; /* Blue */
+}
+#next-action-button:hover {
+    background-color: #007ba7;
+}
+
+
+#message-area {
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    min-height: 20px;
+}
+
+#shop-container {
+    padding: 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    margin-top: 20px;
+    background-color: #252525;
+}
+
+#shop-items .shop-item { /* Example class for a shop item card */
+    width: 100px;
+    height: 120px; /* Taller than playing cards */
+    background-color: #f0e68c; /* Khaki - for a distinct look */
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.9em;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+#shop-items .shop-item .item-cost {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+#exit-shop-button {
+    background-color: #777;
+    margin-top: 10px;
+}
+#exit-shop-button:hover {
+    background-color: #666;
+}

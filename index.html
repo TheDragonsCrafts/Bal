@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balatro Clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <header id="info-area">
+            <h1>Balatro Clone</h1>
+            <div id="game-stats">
+                <p>Blind: <span id="blind-name">Small Blind</span></p>
+                <p>Score Needed: <span id="score-needed">300</span></p>
+                <p>Current Score: <span id="current-score">0</span></p>
+                <p>Hands Left: <span id="hands-left">4</span></p>
+                <p>Discards Left: <span id="discards-left">3</span></p>
+                <p>Money: $<span id="money">0</span></p>
+            </div>
+        </header>
+
+        <section id="joker-area-container">
+            <h2>Jokers</h2>
+            <div id="joker-area">
+                <!-- Jokers will be added here by JavaScript -->
+            </div>
+        </section>
+
+        <main id="game-board">
+            <section id="play-area">
+                <div id="deck-area">
+                    <p>Deck: <span id="deck-count">52</span></p>
+                    <div id="deck-visual" class="card-pile">DECK</div>
+                </div>
+                <div id="discard-area">
+                    <p>Discard: <span id="discard-count">0</span></p>
+                    <div id="discard-visual" class="card-pile">DISCARD</div>
+                </div>
+            </section>
+
+            <section id="player-hand-container">
+                <h2>Your Hand</h2>
+                <div id="player-hand-area">
+                    <!-- Player's cards will be added here by JavaScript -->
+                </div>
+            </section>
+
+            <section id="action-buttons">
+                <button id="play-hand-button">Play Selected Hand</button>
+                <button id="discard-button">Discard Selected Cards</button>
+                <button id="next-action-button" style="display: none;">Go to Shop</button>
+            </section>
+
+            <section id="message-area">
+                <p id="game-message">Welcome to Balatro Clone!</p>
+            </section>
+        </main>
+
+        <section id="shop-container" style="display: none;">
+            <h2>Shop</h2>
+            <div id="shop-items">
+                <!-- Shop items will be added here by JavaScript -->
+            </div>
+            <button id="exit-shop-button">Exit Shop</button>
+        </section>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
