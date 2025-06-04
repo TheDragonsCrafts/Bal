@@ -1,13 +1,54 @@
+:root {
+    --speed-mult: 1;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #1a1a1a; /* Dark background */
-    color: #f0f0f0; /* Light text */
+    background-color: #1a1a1a;
+    color: #f0f0f0;
     margin: 0;
     padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Align to top */
+    align-items: flex-start;
     min-height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255,80,150,0.4), rgba(0,0,0,0.8));
+    z-index: -1;
+    animation: swirl calc(40s / var(--speed-mult)) linear infinite;
+}
+
+@keyframes swirl {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+body.reduce-motion::before {
+    animation: none;
+}
+
+body.high-contrast {
+    background-color: #000;
+    color: #fff;
+}
+
+body.high-contrast .card {
+    background-color: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+body.high-contrast #game-container {
+    background-color: #111;
 }
 
 #game-container {
@@ -109,12 +150,18 @@ header#info-area h1 {
     cursor: pointer;
     font-size: 1em; /* Adjust as needed */
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    user-select: none; /* Prevent text selection */
+    user-select: none;
+    transition: transform calc(0.2s / var(--speed-mult)), box-shadow calc(0.2s / var(--speed-mult));
 }
 
 .card.selected-card {
     border: 3px solid dodgerblue;
     box-shadow: 0 0 10px dodgerblue;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 0 15px rgba(255,255,255,0.4);
 }
 
 /* Basic styling for suit characters if used, or text */
@@ -222,4 +269,29 @@ button:hover {
 }
 #exit-shop-button:hover {
     background-color: #666;
+}
+
+/* Settings panel */
+#settings-area {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #252525;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#settings-area label {
+    margin: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#speed-control {
+    margin-top: 10px;
+}
+
+body.reduce-motion .card:hover {
+    transform: none;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
