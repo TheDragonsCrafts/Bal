@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const shopContainer = document.getElementById('shop-container');
     const shopItemsEl = document.getElementById('shop-items');
     const exitShopButton = document.getElementById('exit-shop-button');
+    const contrastToggle = document.getElementById('toggle-contrast');
+    const motionToggle = document.getElementById('toggle-motion');
+    const speedRange = document.getElementById('speed-range');
+    const speedValue = document.getElementById('speed-value');
 
     // --- Game Constants ---
     const SUITS = ['♥', '♦', '♣', '♠']; // Hearts, Diamonds, Clubs, Spades
@@ -678,12 +682,26 @@ document.addEventListener('DOMContentLoaded', () => {
         playHandButton.style.display = 'inline-block';
         discardButton.style.display = 'inline-block';
         nextActionButton.style.display = 'none';
+
+        speedValue.textContent = speedRange.value + 'x';
+        document.documentElement.style.setProperty('--speed-mult', speedRange.value);
     }
 
     // --- Event Listeners ---
     playHandButton.addEventListener('click', handlePlayHand);
     discardButton.addEventListener('click', handleDiscard);
     exitShopButton.addEventListener('click', exitShop);
+    contrastToggle.addEventListener('change', () => {
+        document.body.classList.toggle('high-contrast', contrastToggle.checked);
+    });
+    motionToggle.addEventListener('change', () => {
+        document.body.classList.toggle('reduce-motion', motionToggle.checked);
+    });
+    speedRange.addEventListener('input', () => {
+        const val = speedRange.value;
+        speedValue.textContent = val + 'x';
+        document.documentElement.style.setProperty('--speed-mult', val);
+    });
     // nextActionButton's click is set dynamically based on game state
 
     // --- Start the game ---
